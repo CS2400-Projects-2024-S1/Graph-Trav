@@ -329,10 +329,53 @@ public class DirectedGraph<T> implements GraphInterface<T>, java.io.Serializable
 		System.out.println("\nEdges exist from the first vertex in each line to the other vertices in the line.");
 		System.out.println("(Edge weights are given; weights are zero for unweighted graphs):\n");
 		Iterator<VertexInterface<T>> vertexIterator = vertices.getValueIterator();
+		
+		ListWithIteratorInterface<T> rowLabels = new LinkedListWithIterator<T>();
+		ListWithIteratorInterface<T> colLabels = new LinkedListWithIterator<T>();
+		boolean[][] adjacencyMatrix = new boolean[getNumberOfVertices()][getNumberOfVertices()];
+		
+		int k = 1;
 		while (vertexIterator.hasNext())
 		{
-			((Vertex<T>)(vertexIterator.next())).display();
+			Vertex<T> currentVertex = (Vertex<T>)(vertexIterator.next());
+			currentVertex.display();
+			rowLabels.add(k, currentVertex.getLabel());
+			colLabels.add(k, currentVertex.getLabel());
+			k++;
 		} // end while
+		System.out.println();
+		
+		System.out.print("   ");
+		for (int i = 0; i < getNumberOfVertices(); i++) {
+			T curCol = colLabels.getEntry(i+1);
+			System.out.print(" " + curCol.toString() + " ");
+			Vertex<T> rowVertex = (Vertex<T>)(vertices.getValue(rowLabels.getEntry(i+1)));
+			Iterator<VertexInterface<T>> rowIterator = rowVertex.getNeighborIterator();
+			while (rowIterator.hasNext())
+			{
+				Vertex<T> columnVertex = (Vertex<T>)(rowIterator.next());
+				for (int j = 0; j < getNumberOfVertices(); j++)
+				{
+					if (columnVertex.getLabel().equals(colLabels.getEntry(j+1))) {
+						adjacencyMatrix[i][j] = true;
+						break;
+					} //end if
+				} // end for
+			} // end while
+		} // end for
+
+		System.out.println();
+		for (int i = 0; i < getNumberOfVertices(); i++)
+		{
+			T curRow = rowLabels.getEntry(i+1);
+			System.out.print(" " + curRow.toString() + " ");
+			for (int j = 0; j < getNumberOfVertices(); j++)
+			{
+				System.out.print(adjacencyMatrix[i][j] ? " 1 " : " 0 ");
+			} // end for
+			System.out.println();
+		} // end for
+		System.out.println();
 	} // end display 
 	
 	private class EntryPQ implements Comparable<EntryPQ>, java.io.Serializable

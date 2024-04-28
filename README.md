@@ -16,6 +16,7 @@ Roles and Contributions:
   - Import Source Code of ListGraph/DirectedGraph-related files
   - Creates Maven and Junit Setup
   - Partial Works on DirectedGraph (DFS, BFS)
+  - Deployed Adjacency Matrix
 
 - Kenneth Wang
   - Deployed Adjacency List
