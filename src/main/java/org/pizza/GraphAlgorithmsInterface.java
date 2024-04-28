@@ -1,4 +1,4 @@
-gpackage org.pizza;
+package org.pizza;
 import org.pizza.*; // Classes that implement various ADTs
 /** 
    An interface of methods that process an existing graph. 
