@@ -1,4 +1,4 @@
-package GraphPackage;
+package org.pizza;
 /**
    An interface of methods that create, manipulate, and process a graph.
    

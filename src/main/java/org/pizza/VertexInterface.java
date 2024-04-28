@@ -1,4 +1,4 @@
-package GraphPackage;
+package org.pizza;
 import java.util.Iterator;
 /**
    An interface for a vertex in a graph.
