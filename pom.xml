@@ -18,7 +18,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit.jupiter.version>5.9.1</junit.jupiter.version>
     <junit.platform.version>1.9.1</junit.platform.version>
-    <exec.mainClass>org.pizza.TODO.CHANGEMEPLEASE</exec.mainClass>
+    <exec.mainClass>org.pizza.Driver</exec.mainClass>
   </properties>
 
   <dependencies>
@@ -63,7 +63,7 @@
             </execution>
           </executions>
           <configuration>
-            <mainClass>org.pizza.TODO.CHANGEMEPLEASE</mainClass>      
+            <mainClass>org.pizza.Driver</mainClass>      
           </configuration>
         </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
