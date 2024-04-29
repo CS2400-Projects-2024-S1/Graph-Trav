@@ -27,6 +27,6 @@ Roles and Contributions:
   - Minor help with the driver
 
 ## Feature
-- Adjacency List
+- Adjacency List & Matrix
 - Java 1.8
 - JUnit
